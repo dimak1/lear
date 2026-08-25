@@ -137,7 +137,9 @@ class EventFilings(str, Enum):
 
     # CONVOTHER Dissolution
     CONVOTHER_OTVDS = 'CONVOTHER_OTVDS'
+    # CONVOTHER Dissolution (OTDIS - historical dissolution type)
     CONVOTHER_OTDIS = 'CONVOTHER_OTDIS'
+
     ## admin
     SYSDA_NULL = 'SYSDA_NULL'
     SYSDS_NULL = 'SYSDS_NULL'
@@ -338,6 +340,7 @@ EVENT_FILING_LEAR_TARGET_MAPPING = {
     EventFilings.FILE_ADVDS: ['dissolution', 'voluntary'],
     EventFilings.FILE_OTVDS: ['dissolution', 'voluntary'],
     EventFilings.FILE_OTDIS: ['dissolution', 'voluntary'],
+    
 
     # CONVOTHER Dissolution
     EventFilings.CONVOTHER_OTVDS: ['dissolution', 'voluntary'],
@@ -463,6 +466,8 @@ EVENT_FILING_DISPLAY_NAME_MAPPING = {
 
     # CONVOTHER Change of Directors
     EventFilings.CONVOTHER_OTCDR: 'Notice of Change of Directors',
+    # Change of Name
+    EventFilings.FILE_OTNCN: 'Notice of Change of Name',
 
     # Change of Name
     EventFilings.FILE_OTNCN: 'Notice of Change of Name',
@@ -502,6 +507,7 @@ EVENT_FILING_DISPLAY_NAME_MAPPING = {
     EventFilings.FILE_ADVDS: 'Application for Dissolution (Voluntary Dissolution)',
     EventFilings.FILE_OTVDS: 'Voluntary Dissolution',
     EventFilings.FILE_OTDIS: 'Dissolution',
+    
 
     # CONVOTHER Dissolution
     EventFilings.CONVOTHER_OTVDS: 'Voluntary Dissolution',
