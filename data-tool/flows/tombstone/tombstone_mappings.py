@@ -469,6 +469,9 @@ EVENT_FILING_DISPLAY_NAME_MAPPING = {
     # Change of Name
     EventFilings.FILE_OTNCN: 'Notice of Change of Name',
 
+    # Change of Name
+    EventFilings.FILE_OTNCN: 'Notice of Change of Name',
+
     EventFilings.FILE_CONTO: '6 Months Consent to Continue Out',
     EventFilings.FILE_COUTI: 'Instrument of Continuation Out',
 
