@@ -54,7 +54,7 @@ Queried `event`/`filing` joined to `corporation` for `corp_typ_cd = 'LIB'`:
 - `FILE_OTDIS` / `CONVOTHER_OTDIS` → `['dissolution', 'voluntary']`, display "Dissolution".
 - `FILE_OTNCN` → `'changeOfName'`, display "Notice of Change of Name". New mapping.
 
-## 3. Tombstone / Auth Flow Changes
+## 3. Tombstone / Auth Flow Changes / Scripts Changes
 
 - `flows/tombstone/tombstone_mappings.py` — added `FILE_OTDIS`, `CONVOTHER_OTDIS`, `FILE_OTNCN` to
   the `EventFilings` enum, `EVENT_FILING_LEAR_TARGET_MAPPING`, and
@@ -62,6 +62,10 @@ Queried `event`/`filing` joined to `corporation` for `corp_typ_cd = 'LIB'`:
 - `flows/tombstone/tombstone_queries.py` — added `'LIB'` to `corp_type_filter` (both occurrences,
   lines 106 and 232).
 - `flows/auth/auth_queries.py` — added `'LIB'` to `CORP_TYPE_FILTER` (line 18).
+- `flows/batch_delete_flow.py` — added `'LIB'` to the `legal_type IN (...)` allowlist in
+  `businesses_cnt_query` and `identifiers_query`, so LIB test businesses cleaned-up
+- `scripts/generate_cprd_subset_extract.py` — added `'LIB'` directly to the default
+  `supported_types` list in `sql_render_oracle_corp_type_predicate`.
 
 ## 4. Next Steps
 
