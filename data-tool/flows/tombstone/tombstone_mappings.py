@@ -466,8 +466,6 @@ EVENT_FILING_DISPLAY_NAME_MAPPING = {
 
     # CONVOTHER Change of Directors
     EventFilings.CONVOTHER_OTCDR: 'Notice of Change of Directors',
-    # Change of Name
-    EventFilings.FILE_OTNCN: 'Notice of Change of Name',
 
     # Change of Name
     EventFilings.FILE_OTNCN: 'Notice of Change of Name',
