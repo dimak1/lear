@@ -40,7 +40,7 @@ FILING_TYPE_MAP = {
     'OTDIS': 'dissolution',
     'OTSPE': 'specialResolution',
     'OTRES': 'restorationApplication',
-    'OTNCN': 'changeOfName',
+    'OTNCN': 'conversion', # filing type is 'coversion', subtype is 'changeOfName'
 }
 ROLE_MAP = {
     'DIR': 'director',
