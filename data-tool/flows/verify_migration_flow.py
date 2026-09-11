@@ -711,6 +711,26 @@ def verify_filings(colin_filings: Dict[str, List[dict]], lear_filings: Dict[str,
             else:
                 results.append(VerificationResult(corp_num, 'filings', 'paper_only', expected_paper, actual_paper, 'MISMATCH'))
 
+            # Effective date (date-part compare: COLIN stores naive local midnight,
+            # LEAR stores timestamptz, so full timestamps would never match)
+            colin_eff = colin_f.get('effective_dt')
+            lear_eff = lear_f.get('effective_date')
+            if colin_eff is None and lear_eff is None:
+                results.append(VerificationResult(corp_num, 'filings', 'effective_date', 'NULL', 'NULL', 'MATCH'))
+            elif colin_eff is None:
+                results.append(VerificationResult(corp_num, 'filings', 'effective_date', 'NULL',
+                                                  str(lear_eff)[:10], 'EXPECTED_GAP', 'COLIN effective_dt is NULL'))
+            elif lear_eff is None:
+                results.append(VerificationResult(corp_num, 'filings', 'effective_date',
+                                                  str(colin_eff)[:10], 'NULL', 'MISSING_IN_LEAR'))
+            else:
+                colin_eff_str = str(colin_eff)[:10]
+                lear_eff_str = str(lear_eff)[:10]
+                if colin_eff_str == lear_eff_str:
+                    results.append(VerificationResult(corp_num, 'filings', 'effective_date', colin_eff_str, lear_eff_str, 'MATCH'))
+                else:
+                    results.append(VerificationResult(corp_num, 'filings', 'effective_date', colin_eff_str, lear_eff_str, 'MISMATCH'))
+
     return results
 
 
