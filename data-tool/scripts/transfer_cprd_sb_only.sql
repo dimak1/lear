@@ -3,8 +3,7 @@ vset cli.settings.transfer_threads=4
 vset format.date=YYYY-MM-dd'T'hh:mm:ss'Z'
 vset format.timestamp=YYYY-MM-dd'T'hh:mm:ss'Z'
 
--- connect cprd_pg;
-connect local_colin_staging;
+connect cprd_pg;
 
 -- Serialize COLIN extract refreshes on this target DB so subset/full runs cannot overlap.
 SELECT pg_advisory_lock(
