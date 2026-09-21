@@ -711,8 +711,7 @@ def verify_filings(colin_filings: Dict[str, List[dict]], lear_filings: Dict[str,
             else:
                 results.append(VerificationResult(corp_num, 'filings', 'paper_only', expected_paper, actual_paper, 'MISMATCH'))
 
-            # Effective date (date-part compare: COLIN stores naive local midnight,
-            # LEAR stores timestamptz, so full timestamps would never match)
+            # Effective date comparisons
             colin_eff = colin_f.get('effective_dt')
             lear_eff = lear_f.get('effective_date')
             if colin_eff is None and lear_eff is None:
